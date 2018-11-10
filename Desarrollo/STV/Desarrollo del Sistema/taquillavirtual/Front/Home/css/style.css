@@ -46,16 +46,17 @@ label{
 }
 .top-header {
 	padding: 1.25em 3em 1.25em 2em;
-	background: rgba(255, 255, 255, 0.47);
+	/*background: rgba(255, 255, 255, 0.47);*/
 }
 .header {
-	background: url('../images/header2.jpg') no-repeat 0px 0px;
+	/*background: url('../images/header2.jpg') no-repeat 0px 0px;*/
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
 	-o-background-size:cover;
 	-ms-background-size:cover;
-	min-height:750px;	
+	min-height:40px;
+	background:	#dfb636;
 }
 .header-info {
 	float:left;
@@ -402,11 +403,11 @@ i.contact1 {
 	min-height:480px;
 }
 .more-reviews{
-	background:#fff;
+	background: #dfb636;
 	padding:3em 0;
 }
 .news {
-	background:#fff;
+	background:#dfb636;
 	padding:4em 3em;	
 }
 .news-left-grid h3 {
@@ -500,8 +501,8 @@ i.book {
 	color:#000;
 }
 .footer {
-	background:#f3f3f3;
-	padding:4em 3em;
+	background:#dfb636;
+	padding:3em 3em;
 }
 .footer h6 {
 	color:#6F6F6F;
@@ -1302,7 +1303,7 @@ font-weight: 700;
 		font-size: 0.95em;
 	}	
 	.header {
-		min-height: 630px;
+		min-height: 0px;
 	}
 	.logo {
 		width: 36%;
