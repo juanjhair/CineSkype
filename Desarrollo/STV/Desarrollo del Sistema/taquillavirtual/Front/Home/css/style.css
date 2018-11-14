@@ -4,13 +4,36 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+
+.titulomodal {
+	color:#383838;
+	font-size:2.2em;
+	font-weight:700;
+}
+.descripcion p {
+	color:#bb7b29;
+	font-size:1.4em;
+	font-weight:600;
+}
+.descripcion h3 {
+	color:#383838;
+	font-size:2.2em;
+	font-weight:700;
+}
+.descripcion h2 {
+	color:#383838;
+	font-size:3em;
+	font-weight:700;
+	margin:10px 0;
+}
 .modal-body
 {
-    background-color: #FFFFFF;
+	background-color: #FFFFFF;
 }
 
 .modal-content
 {
+	
     border-radius: 6px;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
@@ -20,7 +43,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 .modal-footer
 {
 	text-align: center !important;
-	background-color: #dfb636;
+	background-color: #f8dd8a;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
     -webkit-border-bottom-left-radius: 6px;
@@ -31,7 +54,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 .modal-header
 {
-	background-color: #dfb636;
+	background-color: #f8dd8a;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     -webkit-border-top-left-radius: 6px;
@@ -444,7 +467,7 @@ i.contact1 {
 }
 .video iframe {
 	width:100%;
-	min-height:480px;
+	min-height:600px;
 }
 .more-reviews{
 	background: #dfb636;
@@ -455,7 +478,7 @@ i.contact1 {
 	padding:4em 3em;	
 }
 .news-left-grid h3 {
-	color:#b8b8b8;
+	color:#383838;
 	font-size:2.2em;
 	font-weight:700;
 }
@@ -1416,7 +1439,7 @@ font-weight: 700;
 		padding: 12px 21px 14px 11px;
 	}
 	.video iframe {
-		min-height: 400px;
+		height: 400px;
 	}
 	.review-slider {
 		padding: 2.5em 0;
