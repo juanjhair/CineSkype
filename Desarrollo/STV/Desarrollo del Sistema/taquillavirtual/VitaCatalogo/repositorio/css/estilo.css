@@ -34,3 +34,14 @@ background: url("../img/viento.jpg") no-repeat center;
 background-size: 70% 200px;
 height: 200px;
 }
+a{
+	color: #fff;
+}
+.pagoTarjeta{
+	display: none;
+}
+.logo{
+background: url("../img/logo3.png") no-repeat center;
+background-size: 20% 100px;
+
+}
