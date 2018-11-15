@@ -103,8 +103,8 @@
    			 	}
  
    			 	$("<div class='nbs-flexisel-nav-left'></div><div class='nbs-flexisel-nav-right'></div>").insertAfter(object);
-   			 	var cloneContent = object.children().clone();
-   			 	object.append(cloneContent);
+   			 	/*var cloneContent = object.children().clone();
+   			 	object.append(cloneContent);*/
 			},
 					
 			
