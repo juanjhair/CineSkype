@@ -6,6 +6,3 @@ from .models import Movie
 def home(request):
     movies = Movie.objects.all()
     return render(request,"core/home.html",{'movies':movies})
-
-def seeMore(request):
-    return render(request,"core/other.html")

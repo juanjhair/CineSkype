@@ -12,5 +12,5 @@ def ventaEntrada(request,movie_id = 1):
 def about(request):
     return render(request,'ventaEntrada/about.html')
 
-def seeMore(request):
+def extra(request):
     return render(request,"ventaEntrada/other.html")

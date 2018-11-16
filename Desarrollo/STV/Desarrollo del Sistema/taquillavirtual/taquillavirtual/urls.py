@@ -26,7 +26,7 @@ urlpatterns = [
     path('',views.home, name = 'home'),
     path('buy/movie<int:movie_id>/',views_venta.ventaEntrada, name = 'comprar'),
     path('about/',views_venta.about, name = 'about'),
-    path('extra/',views.seeMore, name = 'extra'),
+    path('extra/',views_venta.extra, name = 'extra'),
     #re_path(r'^comprar/(?P<movie_id>\d+)/$',views_venta.ventaEntrada,name = 'comprar'),
 ]
 

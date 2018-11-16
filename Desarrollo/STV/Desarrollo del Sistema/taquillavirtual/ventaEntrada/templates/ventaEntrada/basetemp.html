@@ -72,15 +72,17 @@
                     <ul class="nav" id="side-menu">
                        
                         <li>
-                            <a href="{% url 'extra' %}"><i class="fa fa-circle  fa-fw"></i> Cartelera</a>
+                                    <a href="{% url 'about'%}"><i class="fa fa-circle   fa-fw"></i> Nuestro Cine</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-circle   fa-fw"></i> Promociones</a>
-                                                  <!-- /.nav-second-level -->
+                                <a href="{% url 'home' %}"><i class="fa fa-circle   fa-fw"></i> En Cartelera</a>
+                                                      <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="{% url 'about'%}"><i class="fa fa-circle   fa-fw"></i> Nuestro Cine</a>
+                            <a href="{% url 'extra' %}"><i class="fa fa-circle  fa-fw"></i> Otras Películas</a>
                         </li>
+                        
+                        
                                               
                     </ul>
                 </div>
@@ -89,8 +91,11 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-        {% block content%}{% endblock%}
- 
- 
+        <div id="wrapper">
+            <div id="page-wrapper">
+                {% block content%}{% endblock%}
+            </div>
+            <!-- /#page-wrapper -->
+        </div>
 </body>
 </html>
