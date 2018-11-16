@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CineSkype</title>
+    
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css"/>
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="CineSkype" />
+    
+    
+        
+</head>
+
+<body>
+    <!-- header-section-starts -->
+    <div class="full">
+        <div class="menu">
+            <ul>
+                <li>
+                    <a class="active" href="index.html">
+                        <i class="home"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <!--CONTENT-->
+
+            <div class="header">
+
+                <div class="top-header">
+                    <div class="logo">
+                        <div>
+                            <a href="Home.html">
+                                <img src="images/logo3.png" alt="" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="session2">
+                        <a class="book">
+                            <img src="images/user.png" alt="" width="40" height="40" /> Iniciar sesión
+                        </a>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="more-reviews">
+                    <div id="flexiselDemo2">
+                        <li>
+                            <img src="images/peliculas/avengers.jpg" id="avengers" />
+                        </li>
+                        <li>
+                            <img src="images/peliculas/interestelar.jpg" id="interestelar" />
+                        </li>
+                        <li>
+                            <img src="images/peliculas/liga_de_la_justicia.jpg" id="liga_de_la_justicia" />
+                        </li>
+                        <li>
+                            <img src="images/peliculas/spiderman_2.jpg" id="spiderman_2" />
+                        </li>
+                        <li>
+                            <img src="images/peliculas/mision_submarino.png" id="mision_submarino" />
+                        </li>
+                        
+                    </div>
+                </div>
+
+
+                    <!--MODAL -->
+
+                    <div id="modal-target">
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- -->
+
+                    
+
+                    <div class="news">
+                        <div class="col-md-6 news-left-grid">
+                            <a href="#">
+                                <i class="book"></i>Ver más películas</a>
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <!--Para borrar elementos flotantes-->
+                    </div>
+
+                    <!--END CONTENT-->
+                    <div class="footer">
+
+                    </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="js/jquery.flexisel.js"></script>
+
+<script type="text/javascript">
+
+
+    $(window).on('load', function () {
+        $("#flexiselDemo2").flexisel({
+            visibleItems: 4,
+            animationSpeed: 1000,
+            autoPlay: true,
+            autoPlaySpeed: 3000,
+            pauseOnHover: false,
+            enableResponsiveBreakpoints: true,
+            responsiveBreakpoints: {
+                portrait: {
+                    changePoint: 480,
+                    visibleItems: 2
+                },
+                landscape: {
+                    changePoint: 640,
+                    visibleItems: 3
+                },
+                tablet: {
+                    changePoint: 768,
+                    visibleItems: 3
+                }
+            }
+        });
+    });
+</script>
+<script >
+
+    $("#avengers").click(function () {
+        $.post("Peliculas/avengers.html",
+            function (data) {
+                $("#modal-target .modal-content").html("");
+                $("#modal-target .modal-content").html(data);
+                $("#myModal").modal();
+            }).fail(function () {
+                alert("Error de red");
+            })
+    });
+    $("#interestelar").click(function () {
+        $.post("Peliculas/interestelar.html",
+            function (data) {
+                $("#modal-target .modal-content").html("");
+                $("#modal-target .modal-content").html(data);
+                $("#myModal").modal();
+            }).fail(function () {
+                alert("Error de red");
+            })
+    });
+    $("#liga_de_la_justicia").click(function () {
+        $.post("Peliculas/liga_de_la_justicia.html",
+            function (data) {
+                $("#modal-target .modal-content").html("");
+                $("#modal-target .modal-content").html(data);
+                $("#myModal").modal();
+            }).fail(function () {
+                alert("Error de red");
+            })
+    });
+    $("#spiderman_2").click(function () {
+        $.post("Peliculas/spiderman_2.html",
+            function (data) {
+                $("#modal-target .modal-content").html("");
+                $("#modal-target .modal-content").html(data);
+                $("#myModal").modal();
+            }).fail(function () {
+                alert("Error de red");
+            })
+    });
+    $("#spiderman_2").click(function () {
+        $.post("Peliculas/spiderman_2.html",
+            function (data) {
+                $("#modal-target .modal-content").html("");
+                $("#modal-target .modal-content").html(data);
+                $("#myModal").modal();
+            }).fail(function () {
+                alert("Error de red");
+            })
+    });
+    $("#mision_submarino").click(function () {
+        $.post("Peliculas/mision_submarino.html",
+            function (data) {
+                $("#modal-target .modal-content").html("");
+                $("#modal-target .modal-content").html(data);
+                $("#myModal").modal();
+            }).fail(function () {
+                alert("Error de red");  
+            })
+    });
+</script>
+
+</html>
