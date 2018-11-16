@@ -17,3 +17,6 @@ class Movie(models.Model):
     
     def __str__(self):
         return self.tittle
+    
+    def embedTrailer(self):
+        return self.trailer[-11:] 

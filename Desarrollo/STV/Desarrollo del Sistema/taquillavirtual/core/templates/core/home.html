@@ -1,251 +1,46 @@
-<!DOCTYPE html>
-<html>
+{% extends 'core/base.html' %}
 
-<head>
-    <title>CineSkype</title>
-    <!-- Custom Theme files -->
-    {% load static %}
-    <link href="{% static 'core/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-        crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
+{% block posters %}
+    {% load static%}
+    <ul id="flexiselDemo2">
+    {%for movie in movies %}
+     
+        <li>
+            <img src="{{movie.image.url}}" alt="" id="imgr1" data-toggle="modal" data-target="#myModal{{movie.id}}" />
+        </li>
+    {% endfor%}
+    </ul>
     
-    <!-- Custom Theme files -->
 
-
-
-
-
-
-    <script src="{% static 'core/js/jquery.min.js' %}"></script>
-    <!-- Custom Theme files -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="CineSkype" />
-    <!--webfont-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
-        rel='stylesheet' type='text/css'>
-</head>
-
-<body>
-    <!-- header-section-starts -->
-    <div class="full">
-        <div class="menu">
-            <ul>
-                <li>
-                    <a class="active" href="{% url 'home' %}">
-                        <i class="home"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="main">
-            <!--CONTENT-->
-
-            <div class="header">
-
-                <div class="top-header">
-                    <div class="logo">
-                        <div>
-                            <a href="{% url 'home' %}">
-                                <img src="{% static 'core/images/logo3.png' %}" alt="" />
-                            </a>
-                        </div>
+    {%for movie in movies %}
+    <!-- Modal 1 -->
+    <div class="modal fade" id="myModal{{movie.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="titulomodal" id="myModalLabel">{{movie.tittle}}</h4>
                     </div>
-                    <div class="session2">
-                        <a class="book">
-                            <img src="{% static 'core/images/user.png' %}" alt="" width="40" height="40" /> Iniciar sesión
-                        </a>
+                    <div class="modal-body">
+                            <iframe width="570" height="300" src="http://www.youtube.com/embed/{{movie.embedTrailer}}"></iframe>
+                            
+                            <!--<iframe src="http://www.youtube.com/embed/dP15zlyra3c"></iframe>-->
+                            <hr>
+                             <div class="descripcion">
+                                    <h3>Descripción</h3>
+                                    <p>{{movie.description}}</p>
+                                    
+                             </div>    
+                        </div>   
+                    <div class="modal-footer">
+                            <div class="news-left-grid">
+                                    <a href="#">
+                                        <i class="book"></i>COMPRAR</a>
+                                </div>
                     </div>
-
-                    <div class="clearfix"></div>
                 </div>
-                <div class="more-reviews">
-                    <ul id="flexiselDemo2">
-                        <li>
-                            <img src="{% static 'core/images/r1.jpg' %}" alt="" id="imgr1" data-toggle="modal" data-target="#myModalligajusticia" />
-                        </li>
-                        <li>
-                            <img src="{% static 'core/images/r2.jpg' %}" alt="" id="imgr2" data-toggle="modal" data-target="#myModalspiderman" />
-                        </li>
-                        <li>
-                            <img src="{% static 'core/images/r3.jpg' %}" alt="" id="imgr3" data-toggle="modal" data-target="#myModalvengadores" />
-                        </li>
-                        <li>
-                            <img src="{% static 'core/images/r4.jpg' %}" alt="" id="imgr4" data-toggle="modal" data-target="#myModalinterestelar" />
-                        </li>
-                    </ul>
-                        <!-- Modal 1 -->
-                        <div class="modal fade" id="myModalvengadores" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="titulomodal" id="myModalLabel">LOS VENGADORES ERA ULTRON</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                                <iframe width="570" height="300" src="https://www.youtube.com/embed/KuEDSC-nVVw?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&vq=hd1080&origin=https://youtubeembedcode.com"></iframe>
-                                               
-                                                <hr>
-                                                 <div class="descripcion">
-                                                        <h3>Descripción</h3>
-                                                        <p>llenar con la descripcion</p>
-                                                 </div>    
-                                            </div>   
-                                        <div class="modal-footer">
-                                                <div class="news-left-grid">
-                                                        <a href="#">
-                                                            <i class="book"></i>COMPRAR</a>
-                                                    </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                         <!-- Modal 2 -->
-                         <div class="modal fade" id="myModalspiderman" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="titulomodal" id="myModalLabel">SPIDERMAN 2</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                                <iframe width="570" height="300" src="https://www.youtube.com/embed/ayi5y0Y4s2A?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&vq=hd1080&origin=https://youtubeembedcode.com"></iframe>
-                                                <hr>
-                                                 <div class="descripcion">
-                                                        <h3>Descripción</h3>
-                                                        <p>llenar con la descripcion</p>
-                                                 </div>    
-                                            </div>   
-                                        <div class="modal-footer">
-                                                <div class="news-left-grid">
-                                                        <a href="#">
-                                                            <i class="book"></i>COMPRAR</a>
-                                                    </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                                
-                          <!-- Modal 3 -->
-                        <div class="modal fade" id="myModalinterestelar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="titulomodal" id="myModalLabel">INTERESTELAR</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                                <iframe width="570" height="300" src="https://www.youtube.com/embed/NqniWGlg5kU?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&vq=hd1080&origin=https://youtubeembedcode.com"></iframe>
-                                                <hr>
-                                                 <div class="descripcion">
-                                                        <h3>Descripción</h3>
-                                                        <p>llenar con la descripcion</p>
-                                                 </div>    
-                                            </div>   
-                                        <div class="modal-footer">
-                                                <div class="news-left-grid">
-                                                        <a href="#">
-                                                            <i class="book"></i>COMPRAR</a>
-                                                    </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                         <!-- Modal 4 -->
-                         <div class="modal fade" id="myModalligajusticia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="titulomodal" id="myModalLabel">LIGA DE LA JUSTICA</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <iframe width="570" height="300" src="https://www.youtube.com/embed/VU8dIkEfwNU?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&vq=hd1080&origin=https://youtubeembedcode.com"></iframe>
-                                            <hr>
-                                             <div class="descripcion">
-                                                    <h3>Descripción</h3>
-                                                    <p>llenar con la descripcion</p>
-                                             </div>    
-                                        </div>     
-                                        <div class="modal-footer">
-                                            <div class="news-left-grid">
-                                                    <a href="#">
-                                                        <i class="book"></i>COMPRAR</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                                
-
-                        <div class="news">
-                            <div class="col-md-6 news-left-grid">
-                                <a href="#">
-                                    <i class="book"></i>Ver más películas</a>
-                            </div>
-
-                            <div class="clearfix"></div>
-                            <!--Para borrar elementos flotantes-->
-                        </div>
-
-                        <!--END CONTENT-->
-                        <div class="footer">
-                            
-                        </div>
-                    </div>
-
-</body>
-<script type="text/javascript" src="{% static 'core/js/jquery.flexisel.js' %}"></script>
-
-<script type="text/javascript">
-
-
-    $(window).on('load', function () {
-        $("#flexiselDemo2").flexisel({
-            visibleItems: 4,
-            animationSpeed: 1000,
-            autoPlay: true,
-            autoPlaySpeed: 3000,
-            pauseOnHover: false,
-            enableResponsiveBreakpoints: true,
-            responsiveBreakpoints: {
-                portrait: {
-                    changePoint: 480,
-                    visibleItems: 2
-                },
-                landscape: {
-                    changePoint: 640,
-                    visibleItems: 3
-                },
-                tablet: {
-                    changePoint: 768,
-                    visibleItems: 3
-                }
-            }
-        });
-    });
-</script>
-<script type="text/javascript">
-
-    $(function(){
-        $('.close').click(function(){      
-            $('iframe').attr('src', $('iframe').attr('src'));
-        });
-    });
-</script>
-
-</html>
+            </div>
+        </div>
+    {% endfor%}
+    
+{% endblock %}
