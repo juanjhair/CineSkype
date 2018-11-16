@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canal Etico</title>
+</head>
+    {% load static %}
+   <link href="{% static 'ventaEntrada/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="{% static 'ventaEntrada/vendor/metisMenu/metisMenu.min.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'ventaEntrada/dist/css/sb-admin-2.css' %}" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="{% static 'ventaEntrada/vendor/morrisjs/morris.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'ventaEntrada/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- JQUERY-->
+    <script src="{% static 'ventaEntrada/vendor/jquery/jquery.min.js' %}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'ventaEntrada/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{% static 'ventaEntrada/vendor/metisMenu/metisMenu.min.js' %}"></script>
+    <!-- Morris Charts JavaScript -->
+    <script src="{% static 'ventaEntrada/vendor/raphael/raphael.min.js' %}"></script>
+    <script src="{% static 'ventaEntrada/vendor/morrisjs/morris.min.js' %}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'ventaEntrada/dist/js/sb-admin-2.js' %}"></script>
+     <link href="{% static 'ventaEntrada/css/estilo.css' %}" rel="stylesheet" type="text/css">
+<body>
+     <div id="wrapper" style="background: #F96A07;">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;background: #F96A07;">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div >
+                    <img src="{% static 'ventaEntrada/img/logo3.png' %}" style="margin-left: 5%;height: 55px;width: 200px;">
+                </div>
+              <!--  <a class="navbar-brand" style="color: #fff" href="index.html"><b>CINESKYPE</b></a>-->
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right" >
+                            
+                <!-- /.dropdown -->
+                <li class="dropdown" >
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw" style="color: #fff"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user" > 
+                     
+                        <li> <a href="{% url 'home' %}"><i class="fa fa-sign-out fa-fw"></i> Iniciar sesion</a> </li>
+                        
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation" style="background: #F96A07;color:#fff">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                       
+                        <li>
+                            <a href="{% url 'extra' %}"><i class="fa fa-circle  fa-fw"></i> Cartelera</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-circle   fa-fw"></i> Promociones</a>
+                                                  <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="{% url 'about'%}"><i class="fa fa-circle   fa-fw"></i> Nuestro Cine</a>
+                        </li>
+                                              
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        {% block content%}{% endblock%}
+ 
+ 
+</body>
+</html>

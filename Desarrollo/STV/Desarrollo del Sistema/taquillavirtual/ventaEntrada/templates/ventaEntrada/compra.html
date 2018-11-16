@@ -1,0 +1,166 @@
+{% extends 'ventaEntrada/basetemp.html' %}
+
+{% block content %}
+    <div id="page-wrapper">
+        <div class="row" >
+            <div class="col-lg-12" >
+                <h1 class="page-header"></h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="panel-body">
+                <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                    <div class="form-group">
+                                        <label> Película</label>
+                                        <p>{{movie.tittle}}</p>
+                                    </div>
+                            </div>
+                        </div> 
+                        <div class="row">
+                            <div class="col-lg-10">
+                                    <div class="form-group">
+                                        <label>Fecha de la película</label>
+                                        <input  type="date" class="form-control">
+                                    </div>
+                            </div>
+                        </div>  
+                        <div class="row">
+                            <div class="col-lg-5">
+                                    <label>Cantidad de entradas</label>
+                                    <div class="form-group input-group">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default"  style="background:#F75504;color: #fff" onclick="restar()" type="button"><i class="fa fa-minus"></i>
+                                            </button>
+                                        </span>
+                                        <input type="text" value = "1" class="form-control"  style="text-align: center" id="numEntradas">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" style="background:#F75504;color:#fff" type="button" onclick="sumar()"><i class="fa fa-plus"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                            </div>
+                        </div>  
+                            <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Elegir el horario de la película</label>
+                                        <select class="form-control">
+                                            <option>12:00 - 1:00</option>
+                                            <option>2:00 - 4:00</option>
+                                            <option>5:00 - 7:30</option>
+                                        </select>
+                                </div>
+
+                            </div>
+                            </div>       
+
+                        <div class="row">
+                            <div class="col-lg-10">
+                                    <div class="form-group">
+                                        <label>Nombre y Apellido </label>
+                                        <input  type="text" class="form-control">
+                                    </div>
+                            </div>
+                        </div> 
+                        <div class="row">
+                            <div class="col-lg-10">
+                                    <div class="form-group"  >
+                                        <label>Elegir forma de pago</label>
+                                        <div style="display:flex;"> 
+                                        <div class="radio"  >
+                                            
+                                                    <div>
+                                                    <input type="radio" name="optionsRadios" id="tipoPago"  value="BCP" onclick="handleClick(this);" >                                 
+                                                </div>
+                                                <div>
+                                                    <img src="https://www.viabcp.com/wcm/connect/1d3e0805-edee-4fc5-89c8-e0266a61bc84/BCP_tarjeta+Credima%CC%81s+De%CC%81bito+Visa+%28tira%29-XL.png?MOD=AJPERES&CACHEID=ROOTWORKSPACE-1d3e0805-edee-4fc5-89c8-e0266a61bc84-mlDFtGG" style="margin-left: 5%;height: 100px;width: 200px;">
+                                                </div>
+                                                
+                                                
+                                            
+                                        </div>
+                                        <div class="radio" style="margin-left: 10%;margin-top: 2%">
+                                            
+                                                <div>
+                                                    <input type="radio" name="optionsRadios" id="tipoPago2"  value="Mastercard" onclick="handleClick(this);" >                                 
+                                                </div>
+                                                <div>
+                                                    <img src="http://bitcoinist.com/wp-content/uploads/2018/03/mastercard-accepts-cryptocurrency.jpg" style="margin-left: 5%;height: 100px;width: 200px;">
+                                                </div>
+                                                
+                                        </div>
+                                    </div>
+                                    </div>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="col-lg-6 pagoTarjeta" id="pagoTarjeta2" >
+                        <div class="row">
+                            <div class="col-lg-10">
+                                    <div class="form-group">
+                                        <label>Número de tarjeta</label>
+                                        <input  type="text" id="numeroTarjeta" class="form-control">
+                                    </div>
+                            </div>
+                        </div>  
+                        <div class="row">
+                            <div class="col-lg-10">
+                                    <div class="form-group">
+                                        <label>Clave de tarjeta</label>
+                                        <input  type="password" class="form-control">
+                                    </div>
+                            </div>
+                        </div>  
+                        <div class="row">
+                            <div class="col-lg-10">
+                                    <div class="form-group">
+                                        <button type="button" style="background:#F75504;color:#fff " class="btn btn-lg btn-block">Comprar Entrada</button>
+                                    </div>
+                            </div>
+                        </div>  
+
+                    </div>
+                                
+            </div>
+        </div>
+    
+        
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+
+<script type="text/javascript">
+    numEntradas.value=1;
+    var cont=0;
+function handleClick(myRadio) {
+    
+    pagoTarjeta2.style.display="block"; 
+
+    if(myRadio.value==="BCP")
+    {
+        numeroTarjeta.value="4557 "  
+    }else{
+        numeroTarjeta.value="5709 " 
+    } 
+    
+    }
+    function sumar(){
+    cont=cont+1;
+    numEntradas.value =String(cont);
+    }
+    function restar(){
+    if(cont===0){
+        cont=0;
+    }else{
+        cont=cont-1;
+    }        
+    numEntradas.value =String(cont);
+    }
+
+</script>
+{% endblock%}
