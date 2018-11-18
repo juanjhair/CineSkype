@@ -1,10 +1,13 @@
 {% extends 'ventaEntrada/basetemp.html' %}
 
 {% block content %}
-    
-        
         <!-- /.row -->
         <div class="row">
+            <form action="{% url 'ex'%}" method="POST">
+                {% csrf_token %}
+                    <!--<input name="data" type ="text">
+                    <input name = "xd" type="hidden" value="ssss">
+                    <button type="submit" > send</button>-->
             <div class="panel-body">
                 <div class="col-lg-6">
                         <div class="row">
@@ -12,6 +15,7 @@
                                     <div class="form-group">
                                         <label> Película</label>
                                         <p>{{movie.tittle}}</p>
+                                        <input type="hidden" name = "movie" value = {{movie.id}}>
                                     </div>
                             </div>
                         </div> 
@@ -19,7 +23,7 @@
                             <div class="col-lg-10">
                                     <div class="form-group">
                                         <label>Fecha de la película</label>
-                                        <input  type="date" class="form-control">
+                                        <input  name = "date_movie" type="date" class="form-control">
                                     </div>
                             </div>
                         </div>  
@@ -31,7 +35,7 @@
                                             <button class="btn btn-default"  style="background:#F75504;color: #fff" onclick="restar()" type="button"><i class="fa fa-minus"></i>
                                             </button>
                                         </span>
-                                        <input type="text" value = "1" class="form-control"  style="text-align: center" id="numEntradas">
+                                        <input name = "lot" type="text" value = "1" class="form-control"  style="text-align: center" id="numEntradas">
                                         <span class="input-group-btn">
                                             <button class="btn btn-default" style="background:#F75504;color:#fff" type="button" onclick="sumar()"><i class="fa fa-plus"></i>
                                             </button>
@@ -43,10 +47,10 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Elegir el horario de la película</label>
-                                        <select class="form-control">
-                                            <option>12:00 - 1:00</option>
-                                            <option>2:00 - 4:00</option>
-                                            <option>5:00 - 7:30</option>
+                                        <select name = "hour" class="form-control" >
+                                            {% for h in movie.getInterval%}
+                                                <option >{{h}}</option>
+                                            {% endfor%}
                                         </select>
                                 </div>
 
@@ -57,9 +61,11 @@
                             <div class="col-lg-10">
                                     <div class="form-group">
                                         <label>Nombre y Apellido </label>
-                                        <input  type="text" class="form-control">
+                                        <input  name = "customer_name" type="text" class="form-control">
                                     </div>
                             </div>
+                            
+                            
                         </div> 
                         <div class="row">
                             <div class="col-lg-10">
@@ -69,7 +75,7 @@
                                         <div class="radio"  >
                                             
                                                     <div>
-                                                    <input type="radio" name="optionsRadios" id="tipoPago"  value="BCP" onclick="handleClick(this);" >                                 
+                                                    <input type="radio" id="tipoPago"  value="BCP" onclick="handleClick(this);" >                                 
                                                 </div>
                                                 <div>
                                                     <img src="https://www.viabcp.com/wcm/connect/1d3e0805-edee-4fc5-89c8-e0266a61bc84/BCP_tarjeta+Credima%CC%81s+De%CC%81bito+Visa+%28tira%29-XL.png?MOD=AJPERES&CACHEID=ROOTWORKSPACE-1d3e0805-edee-4fc5-89c8-e0266a61bc84-mlDFtGG" style="margin-left: 5%;height: 100px;width: 200px;">
@@ -81,7 +87,7 @@
                                         <div class="radio" style="margin-left: 10%;margin-top: 2%">
                                             
                                                 <div>
-                                                    <input type="radio" name="optionsRadios" id="tipoPago2"  value="Mastercard" onclick="handleClick(this);" >                                 
+                                                    <input type="radio" id="tipoPago2"  value="Mastercard" onclick="handleClick(this);" >                                 
                                                 </div>
                                                 <div>
                                                     <img src="http://bitcoinist.com/wp-content/uploads/2018/03/mastercard-accepts-cryptocurrency.jpg" style="margin-left: 5%;height: 100px;width: 200px;">
@@ -111,10 +117,51 @@
                             </div>
                         </div>  
                         <div class="row">
-                            <div class="col-lg-10">
-                                    <div class="form-group">
-                                        <button type="button" style="background:#F75504;color:#fff " class="btn btn-lg btn-block">Comprar Entrada</button>
+                                <div class="col-lg-10">
+                                        <hr style= "height: 4px; width:100%; background-color: rgb(155, 153, 153);"> 
+                                </div>   
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <div class="col-lg-7">
+                                        <label style="font-size:1.4em;">Precio unitario: S/.</label>
                                     </div>
+                                    <div class="col-lg-1">
+                                        <p style="font-size:1.4em;" id="monto">{{movie.cost}}</p>
+                                    </div>
+                                </div>   
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <div class="col-lg-7">
+                                            <label style="font-size:1.4em;">Monto total: S/.</label>
+                                    </div>
+                                    <div class="col-lg-1">
+                                        <p style="font-size:1.4em;"id="montototal" >{{movie.cost}}</p>
+                                        <input name="amount" type="hidden" value = "{{movie.cost}}" id="hiddenMount">
+                                    </div>
+                                </div>   
+                            </div> 
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <hr style= "height: 4px; width:100%; background-color: rgb(155, 153, 153);"> 
+                                </div>   
+                            </div>
+                        <div class="row">
+
+                            <div class="col-lg-10">
+                                    
+                                <div class="news-left-grid">
+                                        <!--
+                                        
+                                        <a href="{% url 'comprar' movie.id %}">
+                                        -->
+                                            <button type="submit"> COMPRAR </button>
+                                            <!--
+                                            <i class="book"></i>COMPRAR </a>
+                                            -->
+                                    </div>
+                        
                             </div>
                         </div>  
 
@@ -123,7 +170,7 @@
             </div>
         </div>
     
-        
+        </form>
     </div>
     <!-- /#page-wrapper -->
 
@@ -131,31 +178,42 @@
 
 <script type="text/javascript">
     numEntradas.value=1;
-    var cont=0;
-function handleClick(myRadio) {
-    
-    pagoTarjeta2.style.display="block"; 
+     var precio_entrada=parseFloat(document.getElementById("monto").innerText);
+     var cont=1;
+     var monto=0.00;
+    function handleClick(myRadio) {
+       
+      pagoTarjeta2.style.display="block"; 
 
-    if(myRadio.value==="BCP")
+      if(myRadio.value==="BCP")
+      {
+          numeroTarjeta.value="4557 "  
+      }else{
+         numeroTarjeta.value="5709 " 
+      }      
+     }
+     function sumar(){
+       cont=cont+1;
+       numEntradas.value =String(cont);
+       montoTotal(cont);
+     }
+     function restar(){
+        if(cont===1){
+            cont=1;
+        }else{
+            cont=cont-1;
+        }        
+       numEntradas.value =String(cont);
+       montoTotal(cont);
+       
+     }
+     function montoTotal(cont)
     {
-        numeroTarjeta.value="4557 "  
-    }else{
-        numeroTarjeta.value="5709 " 
-    } 
+        monto=precio_entrada*cont;
+        monto = monto.toFixed(2)
+        document.getElementById("montototal").innerHTML=String(monto);
+        document.getElementById("hiddenMount").setAttribute('value',String(monto));
+    }
     
-    }
-    function sumar(){
-    cont=cont+1;
-    numEntradas.value =String(cont);
-    }
-    function restar(){
-    if(cont===0){
-        cont=0;
-    }else{
-        cont=cont-1;
-    }        
-    numEntradas.value =String(cont);
-    }
-
 </script>
 {% endblock%}
