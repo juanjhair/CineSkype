@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 Django==2.1.2
 Pillow==5.1.0
 
