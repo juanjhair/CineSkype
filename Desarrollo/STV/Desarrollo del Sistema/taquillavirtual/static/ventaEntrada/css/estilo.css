@@ -1,0 +1,47 @@
+
+.contenedor{
+background: url("../img/venon.jpg") no-repeat center;
+background-size: 70% 200px;
+height: 200px;
+}
+
+.contenedor2{
+background: url("../img/hallowen.jpg") no-repeat center;
+background-size: 70% 200px;
+height: 200px;
+}
+
+.contenedor3{
+background: url("../img/lasirena.jpg") no-repeat center;
+background-size: 70% 200px;
+height: 200px;
+}
+
+.contenedor4{
+background: url("../img/kunfupanda.jpg") no-repeat center;
+background-size: 70% 200px;
+height: 200px;
+}
+
+.contenedor5{
+background: url("../img/hotel.jpg") no-repeat center;
+background-size: 70% 200px;
+height: 200px;
+}
+
+.contenedor6{
+background: url("../img/viento.jpg") no-repeat center;
+background-size: 70% 200px;
+height: 200px;
+}
+a{
+	color: #fff;
+}
+.pagoTarjeta{
+	display: none;
+}
+.logo{
+background: url("../img/logo3.png") no-repeat center;
+background-size: 20% 100px;
+
+}
