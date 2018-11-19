@@ -23,7 +23,7 @@
                             <div class="col-lg-10">
                                     <div class="form-group">
                                         <label>Fecha de la película</label>
-                                        <input  name = "date_movie" type="date" class="form-control">
+                                        <input  id='datePicker' name = "date_movie" type="date" class="form-control">
                                     </div>
                             </div>
                         </div>  
@@ -35,7 +35,8 @@
                                             <button class="btn btn-default"  style="background:#F75504;color: #fff" onclick="restar()" type="button"><i class="fa fa-minus"></i>
                                             </button>
                                         </span>
-                                        <input name = "lot" type="text" value = "1" class="form-control"  style="text-align: center" id="numEntradas">
+                                        <input name = "lot" type="text" value = "1" class="form-control"  style="text-align: center" id="numEntradas" readonly="readonly">
+                                        
                                         <span class="input-group-btn">
                                             <button class="btn btn-default" style="background:#F75504;color:#fff" type="button" onclick="sumar()"><i class="fa fa-plus"></i>
                                             </button>
@@ -75,7 +76,7 @@
                                         <div class="radio"  >
                                             
                                                     <div>
-                                                    <input type="radio" id="tipoPago"  value="BCP" onclick="handleClick(this);" >                                 
+                                                    <input name="card" type="radio" id="tipoPago"  value="BCP" onclick="handleClick(this);" >                                 
                                                 </div>
                                                 <div>
                                                     <img src="https://www.viabcp.com/wcm/connect/1d3e0805-edee-4fc5-89c8-e0266a61bc84/BCP_tarjeta+Credima%CC%81s+De%CC%81bito+Visa+%28tira%29-XL.png?MOD=AJPERES&CACHEID=ROOTWORKSPACE-1d3e0805-edee-4fc5-89c8-e0266a61bc84-mlDFtGG" style="margin-left: 5%;height: 100px;width: 200px;">
@@ -87,7 +88,7 @@
                                         <div class="radio" style="margin-left: 10%;margin-top: 2%">
                                             
                                                 <div>
-                                                    <input type="radio" id="tipoPago2"  value="Mastercard" onclick="handleClick(this);" >                                 
+                                                    <input name="card" type="radio" id="tipoPago2"  value="Mastercard" onclick="handleClick(this);" >                                 
                                                 </div>
                                                 <div>
                                                     <img src="http://bitcoinist.com/wp-content/uploads/2018/03/mastercard-accepts-cryptocurrency.jpg" style="margin-left: 5%;height: 100px;width: 200px;">
@@ -177,6 +178,21 @@
 </div>
 
 <script type="text/javascript">
+
+    
+    $(document).ready( function() {
+    var now = new Date();
+    var month = (now.getMonth() + 1);               
+    var day = now.getDate();
+    if (month < 10) 
+        month = "0" + month;
+    if (day < 10) 
+        day = "0" + day;
+    var today = now.getFullYear() + '-' + month + '-' + day;
+    $('#datePicker').attr("min",today);
+    $('#datePicker').attr("value",today);
+    });
+    
     numEntradas.value=1;
      var precio_entrada=parseFloat(document.getElementById("monto").innerText);
      var cont=1;
